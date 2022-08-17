@@ -12,7 +12,7 @@ use tui::{
     Terminal
 };
 
-use crate::play_controler::PlayControler;
+use crate::play_controller::PlayController;
 use crate::config::Config;
 pub struct UI {
     curr_dir: CurrDir,
@@ -65,7 +65,7 @@ impl UI
         playing_song: Option<&String>,
         explore_index: usize,
         playlist_index: usize,
-        player: &PlayControler,
+        player: &PlayController,
         ) -> Result<(), Error> 
     {
         terminal.draw(|frame| {
@@ -181,7 +181,7 @@ impl ProcessBar {
         }
     }
 
-    pub fn draw<B: Backend>(&self, frame: &mut Frame<B>, player: &PlayControler) {
+    pub fn draw<B: Backend>(&self, frame: &mut Frame<B>, player: &PlayController) {
         self.draw_vol(frame, player.volume as f64);
         
         if player.is_playing_or_paused() {
@@ -253,7 +253,7 @@ impl EffectivenessBar {
         Self { area }
     }
 
-    pub fn draw<B>(&self, frame: &mut Frame<B>, player: &PlayControler)
+    pub fn draw<B>(&self, frame: &mut Frame<B>, player: &PlayController)
     where
         B: Backend
     {

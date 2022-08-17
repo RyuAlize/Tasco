@@ -14,7 +14,7 @@ pub enum PlayStatus {
     Complete,
 }
 
-pub struct PlayControler {
+pub struct PlayController {
     pub volume: f32,
     pub current_time: Duration,
     pub total_time: Duration,
@@ -28,8 +28,8 @@ pub struct PlayControler {
     sink: Sink,
 }
 
-impl PlayControler {
-    pub fn new() -> PlayControler {
+impl PlayController {
+    pub fn new() -> PlayController {
         let (stream, stream_handle) = OutputStream::try_default().unwrap();
         let sink = Sink::try_new(&stream_handle).unwrap();
         Self {           

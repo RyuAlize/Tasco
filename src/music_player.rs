@@ -16,13 +16,13 @@ use flume::{Sender, Receiver};
 
 use crate::config::{Music_file_extensions, Config, RawKey, KeyBinding};
 use crate::ui::UI;
-use crate::play_controler::{PlayControler, PlayStatus};
+use crate::play_controller::{PlayController, PlayStatus};
 
 pub struct MusicPlayer {
     config: Config,
     terminal: Terminal<CrosstermBackend<Stdout>>,
     term_ui: UI,
-    player: PlayControler,
+    player: PlayController,
     current_dir: PathBuf,
     explorer_list: Vec<(String, PathBuf)>,   
     explorer_index: usize,
@@ -52,7 +52,7 @@ impl MusicPlayer {
             explorer_list: vec![],
             explorer_index: 0,
             quit: false,
-            player: PlayControler::new(),
+            player: PlayController::new(),
         })
     }
 

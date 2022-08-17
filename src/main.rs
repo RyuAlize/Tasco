@@ -1,6 +1,6 @@
 mod config;
 mod ui;
-mod play_controler;
+mod play_controller;
 mod music_player;
 
 use clap::{App, Arg};
